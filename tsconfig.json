@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "alwaysStrict": true,
+    "baseUrl": "./",
+    "module": "amd",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+    "rootDir": "./",
+    "paths": {
+      "pixi.js": ["node_modules/pixi.js"]
+    }
+  },
+  "include": ["src/main.ts"]
+}
