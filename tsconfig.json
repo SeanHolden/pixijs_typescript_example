@@ -4,14 +4,14 @@
     "alwaysStrict": true,
     "baseUrl": "./",
     "module": "amd",
+    "moduleResolution": "node",
     "outDir": "./dist",
     "sourceMap": true,
-    "strict": true,
     "target": "es5",
     "rootDir": "./",
     "paths": {
-      "pixi.js": ["node_modules/pixi.js"]
+      "pixijs": ["node_modules/@types/pixi.js"]
     }
   },
-  "include": ["src/main.ts"]
+  "include": ["src/**/*"]
 }

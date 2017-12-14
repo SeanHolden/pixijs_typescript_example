@@ -2,7 +2,6 @@
   "name": "pixi-getting-started",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "tsc",
     "prebuild": "node build-scripts/purge.js && node build-scripts/pre-build.js",
@@ -11,11 +10,12 @@
   "author": "sean holden",
   "license": "ISC",
   "dependencies": {
-    "@types/pixi.js": "^4.6.0",
     "pixi.js": "^4.6.1",
     "requirejs": "^2.3.5"
   },
   "devDependencies": {
+    "@types/pixi.js": "^4.6.0",
+    "@types/requirejs": "^2.1.31",
     "fs-extra": "^4.0.2",
     "http-server": "^0.10.0",
     "typescript": "^2.6.2"

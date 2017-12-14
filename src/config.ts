@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: './dist',
     paths: {
-        //"pixi.js": "vendor/pixi.min"
+        "pixijs": "vendor/pixi.min"
     }
 });
 
