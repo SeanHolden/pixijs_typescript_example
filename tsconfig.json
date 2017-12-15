@@ -8,7 +8,6 @@
     "outDir": "./dist",
     "sourceMap": true,
     "target": "es5",
-    "rootDir": "./",
     "paths": {
       "pixijs": ["node_modules/@types/pixi.js"]
     }

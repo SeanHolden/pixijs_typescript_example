@@ -5,4 +5,4 @@ requirejs.config({
     }
 });
 
-requirejs(["src/main"]);
+requirejs(["main"]);

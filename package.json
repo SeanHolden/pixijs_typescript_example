@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "build": "tsc",
-    "prebuild": "node build-scripts/purge.js && node build-scripts/pre-build.js",
-    "server": "http-server -c-1"
+    "prebuild": "node build/purge.js && node build/pre-build.js",
+    "start": "http-server -c-1"
   },
   "author": "sean holden",
   "license": "ISC",
