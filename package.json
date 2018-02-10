@@ -5,7 +5,7 @@
   "scripts": {
     "build": "./node_modules/typescript/bin/tsc",
     "prebuild": "node build/purge.js && node build/pre-build.js",
-    "start": "./node_modules/http-server/bin/http-server -c-1"
+    "start": "./node_modules/http-server/bin/http-server -c-1 dist"
   },
   "author": "sean holden",
   "license": "ISC",
