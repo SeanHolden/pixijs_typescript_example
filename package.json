@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc",
+    "build": "./node_modules/typescript/bin/tsc",
     "prebuild": "node build/purge.js && node build/pre-build.js",
-    "start": "http-server -c-1"
+    "start": "./node_modules/http-server/bin/http-server -c-1"
   },
   "author": "sean holden",
   "license": "ISC",
