@@ -58,7 +58,18 @@ PIXI.loader
     .add([
         "assets/images/cat.png"
     ])
+    .on("progress", loadProgressHandler)
     .load(setup);
+
+function loadProgressHandler(loader, resource) {
+    //Display the file `url` currently being loaded
+    console.log("loading: " + resource.url);
+
+    //Display the percentage of files currently loaded
+    console.log("progress: " + loader.progress + "%");
+
+    // resource.error is also available. This will display any error that happened while loading a file.
+}
 
 // callback function to be called once all images are loaded.
 function setup() {
@@ -69,6 +80,28 @@ function setup() {
     let cat = new PIXI.Sprite(
         PIXI.loader.resources["assets/images/cat.png"].texture
     );
+
+    // === REMOVING A SPRITE
+    // simply remove it from the stage...
+    //app.stage.removeChild(cat);
+    // Alternatively, this will be enough to "remove" the sprite more efficiently...
+    //cat.visible = false;
+
+    // === POSITIONING A SPRITE
+    cat.x = 96;
+    cat.y = 96;
+    // alternatively...
+    cat.position.set(200, 150)
+
+    // === SIZE AND SCALE
+    // by specific number of pixels...
+    cat.width = 80;
+    cat.height = 120;
+    // by a scale factor...
+    cat.scale.x = 0.5;
+    cat.scale.y = 0.5;
+    // alternatively...
+    cat.scale.set(0.5, 0.5);
 
     // once we add a sprite to the stage container, it will be displayed.
     console.log("displaying sprites...");
