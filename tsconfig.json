@@ -10,7 +10,8 @@
     "target": "es5",
     "paths": {
       "pixijs": ["node_modules/@types/pixi.js"]
-    }
+    },
+    "noImplicitAny": true
   },
   "include": ["src/**/*"]
 }

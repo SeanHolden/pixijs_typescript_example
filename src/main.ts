@@ -56,12 +56,14 @@ console.log(app.stage);
 // Add as many images to the "add" array as needed
 PIXI.loader
     .add([
-        "assets/images/cat.png"
+        "assets/images/cat.png",
+        "assets/images/tileset.png"
     ])
     .on("progress", loadProgressHandler)
     .load(setup);
 
-function loadProgressHandler(loader, resource) {
+// === LOADING PROGRESS %
+function loadProgressHandler(loader: PIXI.loaders.Loader, resource: PIXI.loaders.Resource) {
     //Display the file `url` currently being loaded
     console.log("loading: " + resource.url);
 
@@ -103,7 +105,68 @@ function setup() {
     // alternatively...
     cat.scale.set(0.5, 0.5);
 
+    // === ROTATION (value in radians)
+    cat.rotation = 0.5;
+
+    // === ANCHOR POINT
+    cat.anchor.x = 0.5;
+    cat.anchor.y = 0.5;
+    // alternatively
+    cat.anchor.set(0.5, 0.5)
+    // alternatively you can use "pivot" which is same as anchor but uses pixel values instead.
+    cat.pivot.set(32, 32);
+
     // once we add a sprite to the stage container, it will be displayed.
     console.log("displaying sprites...");
     app.stage.addChild(cat);
+
+
+    // === TILESETS
+
+    //PIXI.loader.resources["assets/images/tileset.png"].texture
+    // TextureCache = alternative way of doing the above...
+    let texture = PIXI.utils.TextureCache["assets/images/tileset.png"];
+    let rectangle = new PIXI.Rectangle(96, 64, 32, 32);
+    texture.frame = rectangle;
+
+    let rocket = new PIXI.Sprite(texture);
+    rocket.x = 32;
+    rocket.y = 32;
+    app.stage.addChild(rocket);
+    //app.renderer.render(app.stage); // <-- is this even needed?
+
+    // === LOADING FROM TEXTURE ATLAS (e.g. TEXTURE PACKER)
+
+    //PIXI.loader
+    //  .add("assets/images/treasureHunter.json")
+    //  .load(setup);
+    //const id = PIXI.loader.resources["images/treasureHunter.json"].textures;
+    //let sprite = new PIXI.Sprite(id["frameId.png"]);
+
+
+    // === GAME LOOP
+
+    //Start the game loop by adding the `gameLoop` function to
+    //Pixi's `ticker` and providing it with a `delta` argument.
+    app.ticker.add(delta => gameLoop1(delta, cat));
+
+    function gameLoop1(delta: number, cat: PIXI.Sprite): void {
+        cat.x += 1;
+    }
+
+    // Alternative way of having a gameLoop...
+    // There is no difference, it's just personal preference.
+    function gameLoop2(): void {
+        //Call this `gameLoop` function on the next screen refresh
+        //(which happens 60 times per second)
+        requestAnimationFrame(gameLoop2);
+      
+        //Move the rocket
+        rocket.x += 1;
+    }
+      
+    //Start the loop
+    gameLoop2();
+
 }
+
