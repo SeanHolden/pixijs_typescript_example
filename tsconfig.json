@@ -11,7 +11,8 @@
     "paths": {
       "pixijs": ["node_modules/@types/pixi.js"]
     },
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "noUnusedLocals": true
   },
   "include": ["src/**/*"]
 }
