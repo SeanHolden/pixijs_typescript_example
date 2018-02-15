@@ -38,14 +38,13 @@ class Game {
         this.cat = new CustomSprite(
             loader.resources["../assets/images/cat.png"].texture
         );
-        this.cat.velocity = { x: 0, y: 0 };
+        this.cat.velocity = { x: 1, y: 1 };
         this.app.stage.addChild(this.cat);
+
         this.app.ticker.add(this.update.bind(this));
     }
 
     update(): void {
-        this.cat.velocity.x = 1;
-        this.cat.velocity.y = 1;
         this.cat.x += this.cat.velocity.x;
         this.cat.y += this.cat.velocity.y;
     }
